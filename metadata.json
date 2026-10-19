@@ -1,0 +1,8 @@
+{
+  "name": "اكتشف الناظور",
+  "description": "دليل سياحي تفاعلي لاستكشاف الناظور والريف: الشواطئ وبحيرة مارشيكا وجبل كوروكو والأنشطة والمسارات والمطاعم والتراث.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

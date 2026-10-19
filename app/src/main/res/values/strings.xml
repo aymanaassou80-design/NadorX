@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">اكتشف الناظور</string>
+    <string name="app_subtitle">دليل الزائر إلى الساحل والريف</string>
+    <string name="tab_explore">استكشف</string>
+    <string name="tab_places">الأماكن</string>
+    <string name="tab_map">الخريطة</string>
+    <string name="tab_activities">الأنشطة</string>
+    <string name="tab_dining">المطاعم</string>
+    <string name="tab_culture">الثقافة</string>
+    <string name="search_hint">ابحث عن أماكن، مطاعم، أنشطة…</string>
+    <string name="category_all">الكل</string>
+    <string name="category_beaches">الشواطئ</string>
+    <string name="category_lagoon">البحيرة والبحر</string>
+    <string name="category_mountains">الجبال</string>
+    <string name="category_forests">الغابات</string>
+    <string name="action_open_map">فتح في الخريطة</string>
+    <string name="action_save">حفظ</string>
+    <string name="action_saved">تم الحفظ</string>
+    <string name="safety_alert">تنبيه السلامة: راجع حالة البحر والطقس قبل السباحة أو المسارات الجبلية.</string>
+</resources>

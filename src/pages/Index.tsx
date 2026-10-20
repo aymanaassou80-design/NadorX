@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
 import {
   ArrowDown,
@@ -20,7 +21,7 @@ import Navbar from '@/components/Navbar'
 import MapExplorer from '@/components/MapExplorer'
 import ImageGallery from '@/components/ImageGallery'
 import { MotionItem, MotionReveal } from '@/components/MotionReveal'
-import { activities, culture, dining, itineraries, places, services } from '@/data/nador'
+import { activities, culture, dining, itineraries, places, services, allPlaces } from '@/data/nador'
 import { useTranslation } from 'react-i18next'
 
 const SectionTitle = ({ number, title, intro }: { number: string; title: string; intro: string }) => {
@@ -337,21 +338,32 @@ export default function Index() {
                     </p>
                   </div>
 
-                  {/* Search query tag indicator if active */}
-                  {searchQuery && (
-                    <div className="flex items-center gap-2 rounded-lg bg-accent/10 border border-accent/30 px-3.5 py-1.5 text-xs font-bold text-accent">
-                      <span>
-                        {t('نتائج البحث عن:')} &ldquo;{searchQuery}&rdquo; ({filteredPlaces.length})
-                      </span>
-                      <button
-                        onClick={() => setSearchQuery('')}
-                        className="ms-1 hover:text-foreground"
-                        aria-label={t('إلغاء التصفية')}
-                      >
-                        <X className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Link
+                      to="/places"
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-bold text-primary hover:bg-primary hover:text-primary-foreground transition-all shadow-xs"
+                    >
+                      <Compass className="h-3.5 w-3.5" />
+                      <span>{t('استكشف جميع الأماكن')}</span>
+                      <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-0 ltr:rotate-180" />
+                    </Link>
+
+                    {/* Search query tag indicator if active */}
+                    {searchQuery && (
+                      <div className="flex items-center gap-2 rounded-lg bg-accent/10 border border-accent/30 px-3.5 py-1.5 text-xs font-bold text-accent">
+                        <span>
+                          {t('نتائج البحث عن:')} &ldquo;{searchQuery}&rdquo; ({filteredPlaces.length})
+                        </span>
+                        <button
+                          onClick={() => setSearchQuery('')}
+                          className="ms-1 hover:text-foreground"
+                          aria-label={t('إلغاء التصفية')}
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </MotionItem>
 

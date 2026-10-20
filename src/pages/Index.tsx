@@ -393,6 +393,7 @@ export default function Index() {
                   >
                     {filteredPlaces.map((place, i) => {
                       const isMainLandmark = place.name.includes('مارشيكا') || place.name.includes('كوروكو')
+                      const matchedPlace = allPlaces.find((p) => p.name === place.name)
                       return (
                         <article
                           key={place.name}
@@ -428,18 +429,27 @@ export default function Index() {
                             <p className="text-xs leading-6 text-muted-foreground line-clamp-3">
                               {t(place.note)}
                             </p>
-                            <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between">
+                            <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between gap-2">
                               <button
                                 type="button"
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   setSelectedPlace(place)
                                 }}
-                                className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:text-accent/80 transition-colors"
+                                className="inline-flex items-center gap-1 text-xs font-bold text-accent hover:text-accent/80 transition-colors"
                               >
-                                <span>{t('تفاصيل المعلم')}</span>
-                                <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-0 ltr:rotate-180" />
+                                <span>{t('نظرة سريعة')}</span>
                               </button>
+                              {matchedPlace && (
+                                <Link
+                                  to={`/place/${matchedPlace.id}`}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-accent transition-colors"
+                                >
+                                  <span>{t('صفحة المكان')}</span>
+                                  <ArrowLeft className="h-3 w-3 rtl:rotate-0 ltr:rotate-180" />
+                                </Link>
+                              )}
                               <a
                                 href="#maps"
                                 onClick={(e) => e.stopPropagation()}
@@ -921,15 +931,26 @@ export default function Index() {
 
                 {/* Actions */}
                 <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedPlace.name + ' الناظور')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all active:scale-95"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    <span>{t('الاتجاهات على خرائط Google')}</span>
-                  </a>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedPlace.name + ' الناظور')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all active:scale-95"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      <span>{t('الاتجاهات على خرائط Google')}</span>
+                    </a>
+                    {allPlaces.find((p) => p.name === selectedPlace.name) && (
+                      <Link
+                        to={`/place/${allPlaces.find((p) => p.name === selectedPlace.name)!.id}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2.5 text-xs font-bold text-accent-foreground shadow-xs hover:bg-accent/90 transition-all"
+                      >
+                        <span>{t('فتح الصفحة المستقلة')}</span>
+                        <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-0 ltr:rotate-180" />
+                      </Link>
+                    )}
+                  </div>
 
                   <div className="flex items-center gap-2">
                     <a

@@ -23,6 +23,7 @@ import com.example.nador.data.AppLanguage
 import com.example.nador.data.ChecklistItem
 import com.example.nador.data.NadorData
 import com.example.nador.data.Place
+import com.example.nador.ui.components.AppFooter
 import com.example.nador.ui.components.PlaceCard
 import com.example.nador.ui.components.SafeNetworkImage
 import com.example.nador.ui.components.SectionHeader
@@ -295,6 +296,11 @@ fun CulturePlanScreen(
                     }
                 }
             }
+        }
+
+        // App Footer with owner credit
+        item {
+            AppFooter(language = language)
         }
     }
 }

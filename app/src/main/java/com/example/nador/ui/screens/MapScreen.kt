@@ -341,7 +341,7 @@ fun MapScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            Icons.Default.LocationOn,
+                            Icons.Default.Place,
                             contentDescription = null,
                             tint = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.size(18.dp)

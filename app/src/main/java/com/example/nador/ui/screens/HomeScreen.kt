@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.nador.data.*
+import com.example.nador.ui.components.AppFooter
 import com.example.nador.ui.components.SafeNetworkImage
 import com.example.nador.ui.components.SectionHeader
 
@@ -552,6 +553,11 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+
+        // App Footer with owner credit
+        item {
+            AppFooter(language = language)
         }
     }
 }

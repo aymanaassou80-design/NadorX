@@ -3,6 +3,7 @@ package com.example.nador.ui.components
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -22,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -323,3 +325,65 @@ fun openMapIntent(context: Context, latitude: Double, longitude: Double, label: 
         context.startActivity(Intent(Intent.ACTION_VIEW, browserUri))
     }
 }
+
+@Composable
+fun AppFooter(
+    language: AppLanguage,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(top = 24.dp, bottom = 32.dp, start = 16.dp, end = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        HorizontalDivider(
+            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+            modifier = Modifier.padding(bottom = 20.dp)
+        )
+
+        Surface(
+            shape = RoundedCornerShape(20.dp),
+            color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.12f),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.35f)),
+            modifier = Modifier
+                .padding(bottom = 12.dp)
+                .testTag("app_owner_badge")
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 9.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.size(16.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = when (language) {
+                        AppLanguage.ARABIC -> "صاحبة الموقع: Malak kobae"
+                        AppLanguage.ENGLISH -> "Site Owner: Malak kobae"
+                        AppLanguage.FRENCH -> "Propriétaire du site: Malak kobae"
+                    },
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+            }
+        }
+
+        Text(
+            text = when (language) {
+                AppLanguage.ARABIC -> "اكتشف الناظور — دليل الساحل وبحيرة مارشيكا وجبل كوروكو والريف"
+                AppLanguage.ENGLISH -> "Discover Nador — Guide to the Coast, Marchica Lagoon & Rif"
+                AppLanguage.FRENCH -> "Découvrir Nador — Guide du littoral, de Marchica et du Rif"
+            },
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
+            textAlign = TextAlign.Center
+        )
+    }
+}
+

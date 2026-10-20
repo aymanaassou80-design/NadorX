@@ -550,6 +550,397 @@ export const allPlaces: PlaceItem[] = [
     verified: true,
     googleMapsUrl: 'https://maps.google.com/?q=Sports+Nautiques+Marchica+Nador',
   },
+  {
+    id: 'kariat-arekmane-beach',
+    name: 'شاطئ قرية أركمان (كبدانة)',
+    nameEn: 'Kariat Arekmane Beach',
+    nameFr: 'Plage de Kariat Arekmane',
+    categoryId: 'beaches',
+    area: 'قرية أركمان',
+    areaEn: 'Kariat Arekmane',
+    areaFr: 'Kariat Arekmane',
+    note: 'شاطئ رملي فسيح ومفضل للعائلات ومصب بحيرة مارشيكا من الجهة الجنوبية الشرقية.',
+    description: 'يقع شاطئ قرية أركمان جنوب شرق بحيرة مارشيكا، ويشتهر برماله الذهبية الناعمة ومياهه المتدرجة الضحلة، مما يجعله وجهة ممتازة وآمنة للأسر والأطفال. يمتاز بتوفر مخيمات ومطاعم شاطئية وأجواء صيفية عائلية هادئة.',
+    descriptionEn: 'A vast golden-sand beach southeast of Marchica Lagoon, renowned for shallow calm waters, making it an ideal family-friendly destination.',
+    descriptionFr: 'Vaste plage de sable fin au sud-est de la lagune de Marchica, très appréciée des familles pour ses eaux calmes et peu profondes.',
+    image: '/assets/place-ras-el-ma.webp',
+    coordinates: [35.114, -2.735],
+    address: 'ساحل قرية أركمان، إقليم الناظور',
+    features: ['رمال ذهبية ناعمة', 'مياه ضحلة آمنة للأطفال', 'مطاعم ومقاهي موسمية', 'مواقف سيارات متوفرة'],
+    isFeatured: false,
+    verified: true,
+    googleMapsUrl: 'https://maps.google.com/?q=Plage+Kariat+Arekmane+Nador',
+  },
+  {
+    id: 'tibouda-beach',
+    name: 'شاطئ وقرية الصيادين تيبودا',
+    nameEn: 'Tibouda Beach & Fishermen Village',
+    nameFr: 'Plage et village de pêcheurs de Tibouda',
+    categoryId: 'beaches',
+    area: 'رأس الشوكات الثلاث (بني شيكر)',
+    areaEn: 'Cap des Trois Fourches (Beni Chiker)',
+    areaFr: 'Cap des Trois Fourches (Beni Chiker)',
+    note: 'جوهرة بحرية معزولة بين جروف رأس الشوكات الثلاث ومياه فيروزية لا مثيل لها.',
+    description: 'يعد شاطئ تيبودا من أجمل وأهدأ الشواطئ العذراء في شمال إفريقيا، يقع تحت جروف رأس الشوكات الثلاث الوعرة. يتميز بمرفأ قوارب الصيد التقليدية الزرقاء، والمياه الصافية الشبيهة بالكريستال، وهو مقصد عشاق الغطس والهدوء المطلق.',
+    descriptionEn: 'A remote coastal haven on Cap des Trois Fourches with vivid turquoise waters, traditional blue fishing skiffs, and majestic volcanic sea cliffs.',
+    descriptionFr: 'Un joyau côtier niché au Cap des Trois Fourches avec eaux turquoise cristallines, barques de pêche traditionnelles et falaises grandioses.',
+    image: '/assets/place-charrana.webp',
+    coordinates: [35.328, -2.988],
+    address: 'قرية تيبودا، بني شيكر، إقليم الناظور',
+    features: ['مياه فيروزية فائقة النقاء', 'قرية صيادين تقليدية', 'مثالي للسباحة والغطس', 'طبيعة بكر وهدوء تام'],
+    isFeatured: true,
+    verified: true,
+    googleMapsUrl: 'https://maps.google.com/?q=Plage+Tibouda+Nador',
+  },
+  {
+    id: 'al-aroui-airport',
+    name: 'مطار الناظور العروي الدولي (NDD)',
+    nameEn: 'Nador Al Aroui International Airport',
+    nameFr: 'Aéroport International Nador Al Aroui',
+    categoryId: 'transport',
+    area: 'العروي',
+    areaEn: 'Al Aroui',
+    areaFr: 'Al Aroui',
+    note: 'البوابة الجوية الدولية للناظور ومنطقة الريف، برحلات منتظمة مع العواصم والمدن الأوروبية.',
+    description: 'يقع مطار الناظور العروي الدولي على بعد نحو 28 كيلومتراً جنوب غرب مدينة الناظور. تم تجهيزه بمحطة جوية عصرية تلبي المعايير الدولية، ويربط الإقليم برحلات مباشرة مع فرنسا وألمانيا وبلجيكا وإسبانيا وهولندا، بالإضافة لرحلات الربط الوطنية عبر الدار البيضاء.',
+    descriptionEn: 'The modern international gateway serving Nador and the Rif, offering frequent direct connections with France, Germany, Belgium, the Netherlands, and Spain.',
+    descriptionFr: 'L\'aéroport international moderne reliant Nador et le Rif aux principales métropoles européennes et au réseau national.',
+    image: '/assets/service-local-guides.webp',
+    coordinates: [34.988, -3.028],
+    address: 'الطريق الوطنية رقم 19، بلدية العروي، إقليم الناظور',
+    features: ['محطة جوية حديثة', 'مكاتب تأجير سيارات وصرافة', 'سيارات أجرة وحافلات نقل', 'مواقف سيارات مؤمنة'],
+    isFeatured: false,
+    verified: true,
+    googleMapsUrl: 'https://maps.google.com/?q=Nador+Al+Aroui+Airport',
+  },
+  {
+    id: 'nador-ville-station',
+    name: 'محطة قطار الناظور المدينة (ONCF)',
+    nameEn: 'Nador Ville Train Station',
+    nameFr: 'Gare ONCF Nador Ville',
+    categoryId: 'transport',
+    area: 'وسط الناظور',
+    areaEn: 'Downtown Nador',
+    areaFr: 'Centre-ville de Nador',
+    note: 'المحطة السككية المركزية بالمدينة، برحلات مريحة تربط الناظور بفاس والرباط والدار البيضاء.',
+    description: 'محطة الناظور المدينة هي إحدى المحطات الحديثة التابعة للمكتب الوطني للسكك الحديدية (ONCF). توفر قطارات يومية لنقل المسافرين عبر قطارات مريحة ومكيفة نحو فاس، مكناس، الرباط، الدار البيضاء، وطنجة، مما يجعل التنقل بالقطار خياراً موثوقاً واقتصادياً للزوار.',
+    descriptionEn: 'The modern central railway station connecting Nador with Fez, Meknes, Rabat, Casablanca, and Tangier via daily comfortable trains.',
+    descriptionFr: 'Gare ferroviaire centrale moderne reliant quotidiennement Nador à Fès, Rabat, Casablanca et Tanger.',
+    image: '/assets/place-marchica.webp',
+    coordinates: [35.172, -2.932],
+    address: 'شارع الجيش الملكي، وسط مدينة الناظور',
+    features: ['رحلات سككية يومية منتظمة', 'وسط المدينة وقرب الفنادق', 'شباك تذاكر ومرافق انتظار مكيفة', 'سيارات أجرة عند المدخل'],
+    isFeatured: false,
+    verified: true,
+    googleMapsUrl: 'https://maps.google.com/?q=Gare+Nador+Ville',
+  },
+  {
+    id: 'souk-el-kaissaria',
+    name: 'سوق القيصرية ومحلات الصياغة التقليدية',
+    nameEn: 'Al Kaissaria Traditional Jewelry Market',
+    nameFr: 'Marché Al Kaissaria & Bijouterie Traditionnelle',
+    categoryId: 'shopping',
+    area: 'وسط الناظور',
+    areaEn: 'Downtown Nador',
+    areaFr: 'Centre-ville de Nador',
+    note: 'المركز التاريخي لصياغة الحلي والفضة والذهب واللباس التقليدي الريفي الأصيل.',
+    description: 'يعد مجمع القيصرية أقدم مركز تجاري لبيع وصياغة الحلي الذهبية والفضية التقليدية بالناظور، بالإضافة إلى دكاكين الخياطة التقليدية، الجلابة والقفطان الريفي، وأثواب المناسبات. يمتاز بأجوائه الشعبية العريقة وحرفييه المهرة.',
+    descriptionEn: 'The historical bazaar for fine traditional gold, silver jewelry, handmade Rifian bridal caftans, and fine fabrics.',
+    descriptionFr: 'Le bazar traditionnel pour les parures d\'or et d\'argent, les caftans artisanaux du Rif et les tissus d\'apparat.',
+    image: '/assets/dining-nador-rif.webp',
+    coordinates: [35.174, -2.934],
+    address: 'شارع ابن خلدون، القيصرية، وسط الناظور',
+    features: ['صياغة وتجارة الذهب والفضة', 'أزياء تقليدية ريفية ومغربية', 'موقع مركزي يسهل الوصول إليه سيراً'],
+    isFeatured: false,
+    verified: true,
+    googleMapsUrl: 'https://maps.google.com/?q=Kaissaria+Nador',
+  },
+]
+
+export interface ItineraryStop {
+  time: string
+  placeId?: string
+  title: string
+  titleEn: string
+  titleFr: string
+  description: string
+  descriptionEn: string
+  descriptionFr: string
+  tip?: string
+}
+
+export interface DetailedItinerary {
+  id: string
+  title: string
+  titleEn: string
+  titleFr: string
+  subtitle: string
+  subtitleEn: string
+  subtitleFr: string
+  duration: string
+  durationEn: string
+  durationFr: string
+  category: 'family' | 'nature' | 'coastal' | 'cultural'
+  image: string
+  badge: string
+  summary: string
+  summaryEn: string
+  summaryFr: string
+  stops: ItineraryStop[]
+  practicalTips: string[]
+}
+
+export const detailedItineraries: DetailedItinerary[] = [
+  {
+    id: 'marchica-corniche-24h',
+    title: 'مسار 24 ساعة في مارشيكا والكورنيش',
+    titleEn: '24 Hours in Marchica & City Corniche',
+    titleFr: '24 heures à Marchica et sur la Corniche',
+    subtitle: 'أفضل خطة ليوم متكامل يجمع هدوء البحيرة ونبض المدينة وألذ سمك طازج',
+    subtitleEn: 'The perfect 1-day plan blending lagoon tranquility, city buzz, and fresh seafood',
+    subtitleFr: 'Le plan parfait d\'une journée alliant sérénité de la lagune, vie urbaine et poissons frais',
+    duration: 'يوم كامل (8 إلى 10 ساعات)',
+    durationEn: 'Full Day (8-10 hours)',
+    durationFr: 'Journée complète (8-10 heures)',
+    category: 'family',
+    image: '/assets/itinerary-family.webp',
+    badge: 'الأكثر طلباً للزوار الجدد',
+    summary: 'برنامج صُمم ليمنحك خلاصة تجربة الناظور الحضرية والساحلية: إفطار بإطلالة مائية، جولة بالقارب وسط بحيرة مارشيكا لمشاهدة الطيور المهاجرة، غداء مشويات السمك الطازج بالكورنيش، ثم استراحة الشاي المغربي عند الغروب وجولة تسوق بأسواق المدينة.',
+    summaryEn: 'Designed for first-time visitors seeking the essence of Nador: waterfront breakfast, a boat tour on Marchica Lagoon, seafood lunch by the corniche, and sunset tea.',
+    summaryFr: 'Conçu pour les visiteurs souhaitant l\'essentiel de Nador : petit-déjeuner au bord de l\'eau, excursion en bateau sur Marchica, déjeuner de poisson frais et thé au coucher du soleil.',
+    stops: [
+      {
+        time: '09:00 ص',
+        placeId: 'marchica-view-cafe',
+        title: 'إفطار صباحي على ضفاف بحيرة مارشيكا',
+        titleEn: 'Morning Breakfast by Marchica Lagoon',
+        titleFr: 'Petit-déjeuner au bord de la lagune de Marchica',
+        description: 'ابدأ يومك بنسيم البحر العليل وفطور مغربي أصيل (بيض بجبن الماعز، زيت زيتون ريفي، عسل، وشاي بالنعناع) في إحدى شرفات مقاهي مارينا مارشيكا.',
+        descriptionEn: 'Start your day with gentle sea breeze and a traditional breakfast on the marina terraces overlooking calm lagoon waters.',
+        descriptionFr: 'Débutez votre journée par une brise marine et un petit-déjeuner traditionnel sur les terrasses de la marina face aux eaux calmes.',
+        tip: 'احرص على الجلوس في الشرفة الخارجية لمشاهدة الطيور البحرية صباحاً.',
+      },
+      {
+        time: '11:00 ص',
+        placeId: 'marchica-boat-tour',
+        title: 'جولة القارب البحرية واستكشاف المحمية',
+        titleEn: 'Boat Excursion & Bird Sanctuary Tour',
+        titleFr: 'Excursion en bateau et réserve ornithologique',
+        description: 'انطلق في جولة مائية مدتها ساعة على متن قارب آمن وسط مياه بحيرة مارشيكا، للاستمتاع برؤية طيور النحام الوردي (الفلامينغو) والتقاط صور بانورامية لكورنيش المدينة وجبل كوروكو في الخلفية.',
+        descriptionEn: 'Embark on a guided boat tour across Marchica to observe flamingos and photograph panoramic skyline views.',
+        descriptionFr: 'Montez à bord pour une promenade guidée d\'une heure sur Marchica, admirez les flamants roses et le panorama du mont Gourougou.',
+        tip: 'تتوفر سترات نجاة لجميع الأعمار؛ خذ معك نظارة شمسية وقبعة.',
+      },
+      {
+        time: '01:30 م',
+        placeId: 'corniche-seafood',
+        title: 'مأدبة سمك المتوسط الطازج بالكورنيش',
+        titleEn: 'Fresh Mediterranean Seafood Feast',
+        titleFr: 'Festin de poissons frais sur la Corniche',
+        description: 'تذوق صواني السمك المشوي والمقلي الطازج القادم مباشرة من ميناء الصيد: السردين المتبل على الطريقة الريفية، والجمبري، والميرلان، مع سلطة مغربية مشوية وخبز الفرن التقليدي.',
+        descriptionEn: 'Enjoy grilled sardines, fresh calamari, and prawns with fragrant Moroccan zaalouk and wood-fired bread.',
+        descriptionFr: 'Dégustez sardines grillées, crevettes royales et soles accompagnées de salades marocaines et pain traditionnel.',
+        tip: 'اسأل النادل عن "صيد الصباح" لاختيار نوع السمك المفضل لديك مباشرة من الثلاجة.',
+      },
+      {
+        time: '04:30 م',
+        placeId: 'nador-corniche',
+        title: 'ممشى الكورنيش وجولة مسائية مريحة',
+        titleEn: 'Corniche Leisure Stroll',
+        titleFr: 'Promenade de détente sur la Corniche',
+        description: 'تنزه على طول ممشى الكورنيش الواسع، حيث تجتمع العائلات والرياضيون، وتتوفر فضاءات آمنة لألعاب الأطفال ودراجات للتأجير.',
+        descriptionEn: 'A scenic relaxing stroll along the wide pedestrian promenade as the late afternoon sunlight glitters on the lagoon.',
+        descriptionFr: 'Balade détendue sur la promenade piétonne alors que le soleil doré de fin d\'après-midi illumine la lagune.',
+      },
+      {
+        time: '07:30 م',
+        placeId: 'souk-oulad-mimoun',
+        title: 'جولة تسوق وشراء تذكارات بسوق أولاد ميمون',
+        titleEn: 'Souk Oulad Mimoun Evening Shopping',
+        titleFr: 'Shopping nocturne au Souk Oulad Mimoun',
+        description: 'اختتم يومك في قلب الحركة التجارية بالناظور: اقتناء التوابل الريفية، الزيتون البلدي، والمنتجات الحرفية.',
+        descriptionEn: 'Wind down your day discovering local spices, mountain olive oils, and Rifian artisan souvenirs.',
+        descriptionFr: 'Terminez votre journée en découvrant les épices du Rif, les huiles d\'olive du terroir et l\'artisanat local.',
+      },
+    ],
+    practicalTips: [
+      'أفضل وسيلة للتنقل بين الكورنيش ومارشيكا هي سيارات الأجرة الصغيرة (Petit Taxi) الحمراء، بتسعيرة عداد واضحة.',
+      'احرص على أخذ سترة خفيفة في المساء لأن نسيم البحيرة قد يصبح بارداً بعد غروب الشمس.',
+    ],
+  },
+  {
+    id: 'gourougou-nature-hike',
+    title: 'مغامرة قمم كوروكو والغابة الصنوبرية',
+    titleEn: 'Gourougou Mountain & Pine Forest Trek',
+    titleFr: 'Aventure sur les cimes du Gourougou et forêt de pins',
+    subtitle: 'مسار لعشاق الهواء النقي، رياضة المشي، الاستكشاف التاريخي وإطلالات 360 درجة',
+    subtitleEn: 'For nature lovers, hikers, history buffs, and 360-degree panoramic photography',
+    subtitleFr: 'Pour les amoureux de nature, randonneurs et amateurs de vues panoramiques à 360°',
+    duration: 'نصف يوم إلى 6 ساعات',
+    durationEn: 'Half Day (4-6 hours)',
+    durationFr: 'Demi-journée (4-6 heures)',
+    category: 'nature',
+    image: '/assets/itinerary-youth.webp',
+    badge: 'لعشاق الطبيعة والمغامرة',
+    summary: 'اصعد إلى أعلى نقطة بإقليم الناظور (890 متراً) لاستنشاق نسيم الغابات الصنوبرية، استكشاف الحصون التاريخية القديمة، رؤية قردة المكاك البربري في بيئتها الطبيعية، ومشاهدة الناظور ومارشيكا والبحر المتوسط وكأنك تشاهد لوحة فنية مرسومة.',
+    summaryEn: 'Ascend to Nador\'s rooftop (890m elevation) through pine forests, encounter playful Barbary macaques, explore old hilltop bastions, and admire spectacular views.',
+    summaryFr: 'Montez sur le toit de Nador (890m d\'altitude) à travers les pinèdes, observez les macaques de Barbarie et contemplez un panorama époustouflant.',
+    stops: [
+      {
+        time: '08:30 ص',
+        placeId: 'gourougou-forest',
+        title: 'الانطلاق من غابة كوروكو ومسار الصنوبر',
+        titleEn: 'Start at Gourougou Pine Forest',
+        titleFr: 'Départ depuis la forêt de pins du Gourougou',
+        description: 'ابدأ مسار المشي وسط أشجار الصنوبر الحلبي والكاليبتوس العطرة، حيث تكون درجات الحرارة معتدلة والهواء محملاً برائحة الغابة المنعشة.',
+        descriptionEn: 'Begin your hike through fragrant Aleppo pine and eucalyptus groves in cool morning mountain air.',
+        descriptionFr: 'Commencez votre ascension au milieu des senteurs vivifiantes de pins d\'Alep et d\'eucalyptus.',
+        tip: 'ارتدِ حذاء مشي مريحاً وخذ معك كمية كافية من مياه الشرب.',
+      },
+      {
+        time: '10:30 ص',
+        placeId: 'gourougou-mountain',
+        title: 'الوصول إلى القمة وإطلالة الـ 360 درجة البانورامية',
+        titleEn: 'Reach the Summit & 360° Panoramic Vista',
+        titleFr: 'Arrivée au sommet et panorama à 360°',
+        description: 'الوقوف على قمة جبل كوروكو بمشهد بديع يُظهر بحيرة مارشيكا بالكامل، لسان بوكانة، ميناء بني أنصار، وخط الأفق المتوسطي الساحر.',
+        descriptionEn: 'Stand at the peak to take in breathtaking views stretching from Marchica Lagoon to the open Mediterranean horizon.',
+        descriptionFr: 'Atteignez la crête pour une vue spectaculaire embrassant toute la lagune, Boukana et l\'horizon marin.',
+      },
+      {
+        time: '12:30 م',
+        title: 'استراحة الشاي والأكلات الريفية الجبلية',
+        titleEn: 'Mountain Tea Break & Local Picnic',
+        titleFr: 'Pause thé montagnard et en-cas du Rif',
+        description: 'جلسة استراحة في إحدى المساحات المظللة لتناول الشاي الجبلي بالأعشاب والخبز الريفي الطازج مع زيت الزيتون والجبن المحلي.',
+        descriptionEn: 'Relax in shaded picnic areas with herbal mountain tea, artisanal wholemeal bread, and local olive oil.',
+        descriptionFr: 'Détendez-vous dans les aires ombragées autour d\'un thé aux herbes sauvages et pain de campagne.',
+        tip: 'حافظ على نظافة الغابة واجمع كافة المخلفات في كيس معك.',
+      },
+    ],
+    practicalTips: [
+      'تجنب إطعام قردة المكاك البربري بالأطعمة المصنعة للحفاظ على سلوكها الطبيعي وصحتها.',
+      'يفضل استخدام سيارة دفع رباعي أو سيارة مرتفعة إذا رغبت بالصعود بالسيارة حتى قرب القمة.',
+    ],
+  },
+  {
+    id: 'virgin-beaches-cap-trois-fourches',
+    title: 'مسار شواطئ الناظور العذراء وجروف المتوسط',
+    titleEn: 'Virgin Beaches & Mediterranean Cliffs Trail',
+    titleFr: 'Circuit des plages sauvages et falaises du Cap des Trois Fourches',
+    subtitle: 'رحلة إلى أنقى مياه بحرية بالناظور: تشارانا، تيبودا، ورأس الشوكات الثلاث',
+    subtitleEn: 'Journey to northern Africa\'s most pristine turquoise coves: Charrana, Tibouda & Cap des Trois Fourches',
+    subtitleFr: 'Voyage vers les criques turquoise les plus pures : Charrana, Tibouda et Cap des Trois Fourches',
+    duration: 'يوم كامل (7 إلى 9 ساعات)',
+    durationEn: 'Full Day (7-9 hours)',
+    durationFr: 'Journée complète (7-9 heures)',
+    category: 'coastal',
+    image: '/assets/place-charrana.webp',
+    badge: 'لعشاق البحر والغطس والتصوير',
+    summary: 'انطلق في رحلة ساحلية شمال غرب الناظور نحو شبه جزيرة رأس الشوكات الثلاث (Cap des Trois Fourches). هناك تكتشف شاطئ شعرانة ذي الجروف الشاهقة، ثم قرية الصيادين تيبودا بمياهها الفيروزية الرائعة، مع تجربة سباحة وغطس استثنائية بعيداً عن أي ضوضاء.',
+    summaryEn: 'A breathtaking coastal expedition along the Cap des Trois Fourches peninsula to discover secluded Charrana Beach and peaceful Tibouda cove.',
+    summaryFr: 'Une expédition côtière grandiose le long du Cap des Trois Fourches pour découvrir la plage de Charrana et l\'anse préservée de Tibouda.',
+    stops: [
+      {
+        time: '09:30 ص',
+        placeId: 'charrana-beach',
+        title: 'استكشاف شاطئ شعرانة والجروف المنحدرة',
+        titleEn: 'Explore Charrana Beach & Sea Cliffs',
+        titleFr: 'Exploration de la plage de Charrana et falaises',
+        description: 'النزول نحو شاطئ شعرانة والاستمتاع بالمياه الصافية ورماله الذهبية الهادئة والتقاط صور للتكوينات الصخرية الفريدة.',
+        descriptionEn: 'Arrive at Charrana Beach to swim in transparent waters framed by red volcanic rocks.',
+        descriptionFr: 'Arrivée à la plage de Charrana pour une baignade dans des eaux limpides entourées de falaises rocheuses.',
+      },
+      {
+        time: '01:00 م',
+        placeId: 'tibouda-beach',
+        title: 'زيارة قرية تيبودا والغطس السطحي',
+        titleEn: 'Tibouda Cove & Snorkeling Session',
+        titleFr: 'Crique de Tibouda et plongée tuba',
+        description: 'الانتقال إلى قرية الصيادين تيبودا، تجربة الغطس السطحي (Snorkeling) لرؤية قاع البحر الغني بالأسماك، ومشاهدة قوارب الصيادين التقليدية.',
+        descriptionEn: 'Head to Tibouda fishing cove for snorkeling among colorful marine life and watching local fishermen at work.',
+        descriptionFr: 'Direction Tibouda pour une séance de snorkeling au milieu des fonds marins préservés et des barques de pêcheurs.',
+      },
+      {
+        time: '05:00 م',
+        placeId: 'bocana-beach',
+        title: 'تأمل الغروب عند لسان بوكانة الرملي',
+        titleEn: 'Sunset Watching at Boukana Sandspit',
+        titleFr: 'Coucher de soleil sur le cordon de Boukana',
+        description: 'العودة مساءً والتوقف عند لسان بوكانة الرملي للاستمتاع برؤية هدوء مياه بحيرة مارشيكا على اليمين وأمواج المتوسط على اليسار أثناء غروب الشمس.',
+        descriptionEn: 'Stop by Boukana sandbar on the way back to witness golden hour between the tranquil lagoon and the sea.',
+        descriptionFr: 'Halte au cordon dunaire de Boukana pour admirer le crépuscule doré entre lagune et mer ouverte.',
+      },
+    ],
+    practicalTips: [
+      'الطريق المؤدية إلى شعرانة وتيبودا تتضمن مقاطع غير معبدة؛ قُد بحذر وبسرعة منخفضة.',
+      'لا تتوفر محلات كثيرة على هذه الشواطئ العذراء، لذا تزوّد بالطعام والماء والواقي الشمسي قبل الانطلاق من الناظور أو بني شيكر.',
+    ],
+  },
+  {
+    id: 'rif-culture-souks',
+    title: 'مسار الأصالة والتسوق والتراث الريفي',
+    titleEn: 'Authentic Rif Culture, Heritage & Souks',
+    titleFr: 'Circuit d\'authenticité, patrimoine rifain et souks',
+    subtitle: 'رحلة في الذاكرة الحية للناظور: قصبة سلوان التاريخية، الحرف اليدوية، والأسواق الشعبية',
+    subtitleEn: 'A cultural voyage through Nador\'s living memory: Selouane Kasbah, handicrafts, and historic bazaars',
+    subtitleFr: 'Un voyage culturel à travers la mémoire vivante de Nador : Kasbah de Selouane, artisanat et souks',
+    duration: 'نصف يوم إلى يوم كامل',
+    durationEn: 'Half to Full Day (5-7 hours)',
+    durationFr: 'Demi-journée à journée complète (5-7 heures)',
+    category: 'cultural',
+    image: '/assets/culture-selouane-kasbah.webp',
+    badge: 'ثقافة وأصالة ريفية',
+    summary: 'اكتشف الجذور التاريخية والثقافية لإقليم الناظور بزيارة قصبة سلوان الإسماعيلية التي صمدت لقرون، ثم استكشف سوق القيصرية للفضيات والذهب الريفي، وسوق أولاد ميمون لتذوق زيت الزيتون الأصيل والتعرف على حرف وتقاليد أهل الريف الكرماء.',
+    summaryEn: 'Discover Nador\'s cultural roots: the 17th-century Kasbah of Selouane, traditional silver artisans at Al Kaissaria, and local souks.',
+    summaryFr: 'Découvrez les racines culturelles de Nador : la Kasbah de Selouane du XVIIe siècle, l\'orfèvrerie d\'Al Kaissaria et les souks vivants.',
+    stops: [
+      {
+        time: '10:00 ص',
+        placeId: 'kasbah-selouane',
+        title: 'استكشاف قصبة سلوان الإسماعيلية',
+        titleEn: 'Explore the Historic Kasbah of Selouane',
+        titleFr: 'Visite de la Kasbah historique de Selouane',
+        description: 'زيارة أسوار وأبراج قصبة سلوان التاريخية والتعرف على دورها في حماية مسالك التجارة بالريف الشرقي في عهد الدولة العلوية.',
+        descriptionEn: 'Admire the rammed-earth defensive bastions of this 17th-century historical fortress near Selouane.',
+        descriptionFr: 'Découvrez les remparts et bastions de cette citadelle historique du XVIIe siècle près de Selouane.',
+      },
+      {
+        time: '12:30 م',
+        placeId: 'nador-rif-cuisine',
+        title: 'غداء طاجين ريفي تقليدي على الفحم',
+        titleEn: 'Traditional Rifian Charcoal Tagine Lunch',
+        titleFr: 'Déjeuner tajine traditionnel rifain au charbon de bois',
+        description: 'تذوق طاجين لحم الغنم بالبرقوق واللوز أو طاجين السمك بالخضار الطازجة المطهو ببطء على الفحم بوسط الناظور.',
+        descriptionEn: 'Savor tender lamb tagine with prunes or slow-simmered fish tagine cooked over glowing embers.',
+        descriptionFr: 'Savourez un tajine d\'agneau aux pruneaux ou un tajine de poisson mijoté au feu de charbon de bois.',
+      },
+      {
+        time: '03:30 م',
+        placeId: 'souk-el-kaissaria',
+        title: 'جولة سوق القيصرية للفضة والذهب والقفطان',
+        titleEn: 'Al Kaissaria Traditional Jewelry & Caftans',
+        titleFr: 'Marché Al Kaissaria : bijoux traditionnels et caftans',
+        description: 'مشاهدة حلي الفضة التقليدية الريفية، والتعرف على أثواب القفطان والجلابة المصنوعة يدوياً بأنامل خياطين محليين.',
+        descriptionEn: 'Browse authentic handcrafted Berber silver jewelry, wedding caftans, and traditional textiles.',
+        descriptionFr: 'Découvrez l\'artisanat des parures en argent berbère, caftans de mariage et broderies locales.',
+      },
+      {
+        time: '05:30 م',
+        placeId: 'rif-amazigh-heritage',
+        title: 'أمسية في مقهى ثقافي وتذوق شاي النعناع واللويزة',
+        titleEn: 'Evening at a Cultural Café with Herbal Tea',
+        titleFr: 'Soirée dans un café culturel et thé à la menthe',
+        description: 'جلسة استرخاء ممتعة للاستماع إلى ألحان الموسيقى الريفية والأمازيغية الهادئة والاستمتاع بأجواء المدينة الحميمية.',
+        descriptionEn: 'Relax in a city café enjoying traditional music notes and aromatic mint & verbena tea.',
+        descriptionFr: 'Moment de détente dans un café urbain bercé par des mélodies rifaines douces.',
+      },
+    ],
+    practicalTips: [
+      'سوق القيصرية يبلغ ذروة نشاطه في فترات بعد الظهر؛ يفضل المشي على الأقدام لأن الشوارع ضيقة ولا تتسع للسيارات.',
+      'المساومة باحترام مقبولة ومألوفة في الأسواق التقليدية.',
+    ],
+  },
 ]
 
 // Backward compatibility exports for existing components
@@ -579,7 +970,7 @@ export const services = allPlaces.filter((p) => p.categoryId === 'services').map
 }))
 export const itineraries = [
   {
-    name: 'يوم عائلي',
+    name: 'يوم عائلي في مارشيكا',
     audience: 'وقت هادئ للجميع',
     image: '/assets/itinerary-family.webp',
     steps: ['صباح عند مارشيكا', 'غداء سمك قرب الكورنيش', 'نزهة هادئة عند الغروب'],
@@ -603,3 +994,8 @@ export function getCategoryById(id: string): CategoryItem | undefined {
 export function getPlacesByCategory(categoryId: string): PlaceItem[] {
   return allPlaces.filter((p) => p.categoryId === categoryId)
 }
+
+export function getItineraryById(id: string): DetailedItinerary | undefined {
+  return detailedItineraries.find((it) => it.id === id)
+}
+

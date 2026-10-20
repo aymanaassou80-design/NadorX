@@ -8,6 +8,9 @@ import Index from "./pages/Index"
 import PlacesPage from "./pages/PlacesPage"
 import CategoryPage from "./pages/CategoryPage"
 import PlaceDetailPage from "./pages/PlaceDetailPage"
+import SavedPlacesPage from "./pages/SavedPlacesPage"
+import ItinerariesPage from "./pages/ItinerariesPage"
+import EssentialsPage from "./pages/EssentialsPage"
 import AboutPage from "./pages/AboutPage"
 import NotFound from "./pages/NotFound"
 
@@ -25,13 +28,18 @@ const App = () => (
           <Route path="/places" element={<PlacesPage />} />
           <Route path="/place/:placeId" element={<PlaceDetailPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />
+          <Route path="/saved" element={<SavedPlacesPage />} />
+          <Route path="/itineraries" element={<ItinerariesPage />} />
+          <Route path="/essentials" element={<EssentialsPage />} />
           
-          {/* Direct Category Shortcuts requested by user */}
+          {/* Direct Category & Feature Shortcuts */}
           <Route path="/tourism" element={<Navigate to="/category/tourism" replace />} />
           <Route path="/beaches" element={<Navigate to="/category/beaches" replace />} />
           <Route path="/nature" element={<Navigate to="/category/nature" replace />} />
           <Route path="/dining" element={<Navigate to="/category/restaurants" replace />} />
           <Route path="/services" element={<Navigate to="/category/services" replace />} />
+          <Route path="/emergency" element={<Navigate to="/essentials" replace />} />
+          <Route path="/tours" element={<Navigate to="/itineraries" replace />} />
           
           <Route path="/about" element={<AboutPage />} />
 

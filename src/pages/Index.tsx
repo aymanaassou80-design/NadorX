@@ -15,7 +15,9 @@ import {
   Navigation,
   UtensilsCrossed,
   Trees,
+  Heart,
 } from 'lucide-react'
+import { toast } from 'sonner'
 import SafeImage from '@/components/SafeImage'
 import Navbar from '@/components/Navbar'
 import MapExplorer from '@/components/MapExplorer'
@@ -23,6 +25,7 @@ import ImageGallery from '@/components/ImageGallery'
 import { MotionItem, MotionReveal } from '@/components/MotionReveal'
 import { activities, culture, dining, itineraries, places, services, allPlaces } from '@/data/nador'
 import { useTranslation } from 'react-i18next'
+import { useFavorites } from '@/utils/favorites'
 
 const SectionTitle = ({ number, title, intro }: { number: string; title: string; intro: string }) => {
   const { t } = useTranslation()
@@ -47,6 +50,7 @@ interface PlaceItem {
 export default function Index() {
   const { t, i18n } = useTranslation()
   const reducedMotion = useReducedMotion()
+  const { isFav, toggle: toggleFav } = useFavorites()
 
   // Search & Categories State
   const [searchQuery, setSearchQuery] = useState('')
@@ -239,24 +243,21 @@ export default function Index() {
                   transition={{ duration: 0.55, ease: 'easeOut', delay: 0.22 }}
                   className="mt-8 flex flex-wrap items-center gap-3"
                 >
-                  <a
-                    href="#places"
+                  <Link
+                    to="/places"
                     className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg active:scale-95"
                   >
-                    <span>{t('اكتشف الناظور')}</span>
+                    <Compass className="h-4 w-4" />
+                    <span>{t('استكشف جميع الأماكن')}</span>
                     <ArrowLeft className="h-4 w-4 rtl:rotate-0 ltr:rotate-180" />
-                  </a>
-                  <a
-                    href="#places"
-                    onClick={() => {
-                      const el = document.getElementById('places')
-                      el?.scrollIntoView({ behavior: 'smooth' })
-                    }}
+                  </Link>
+                  <Link
+                    to="/itineraries"
                     className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white shadow-sm backdrop-blur-md transition-all hover:bg-white/20 active:scale-95"
                   >
-                    <Compass className="h-4 w-4 text-accent" />
-                    <span>{t('استكشف الأماكن')}</span>
-                  </a>
+                    <Navigation className="h-4 w-4 text-accent" />
+                    <span>{t('المسارات المقترحة')}</span>
+                  </Link>
                 </motion.div>
 
                 {/* Mobile/Tablet Highlights Bar */}
@@ -415,6 +416,30 @@ export default function Index() {
                                 {t('معلم رئيسي')}
                               </span>
                             ) : null}
+                            {matchedPlace && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  const nowFav = toggleFav(matchedPlace.id)
+                                  if (nowFav) {
+                                    toast.success(t('تمت إضافة المكان إلى المفضلة ❤️'))
+                                  } else {
+                                    toast.info(t('تمت إزالة المكان من المفضلة'))
+                                  }
+                                }}
+                                className="absolute bottom-3 end-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 backdrop-blur-md transition-all hover:scale-110 hover:bg-black/80"
+                                aria-label={t('حفظ في المفضلة')}
+                              >
+                                <Heart
+                                  className={`h-4 w-4 ${
+                                    isFav(matchedPlace.id)
+                                      ? 'fill-rose-500 text-rose-500'
+                                      : 'text-white hover:text-rose-400'
+                                  }`}
+                                />
+                              </button>
+                            )}
                           </div>
                           <div className="p-5">
                             {place.area && (

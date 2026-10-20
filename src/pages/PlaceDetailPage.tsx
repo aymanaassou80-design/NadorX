@@ -15,17 +15,20 @@ import {
   Info,
   Calendar,
   Waves,
+  Heart,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SafeImage from '@/components/SafeImage'
 import { allPlaces, categories, PlaceItem } from '@/data/nador'
+import { useFavorites } from '@/utils/favorites'
 
 export default function PlaceDetailPage() {
   const { placeId } = useParams<{ placeId: string }>()
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
+  const { isFav, toggle } = useFavorites()
 
   // Find place
   const place = useMemo(() => {
@@ -136,8 +139,29 @@ export default function PlaceDetailPage() {
               )}
             </div>
 
-            {/* Share action */}
-            <div className="absolute top-4 end-4">
+            {/* Actions: Favorite & Share */}
+            <div className="absolute top-4 end-4 flex items-center gap-2">
+              <button
+                onClick={(e) => {
+                  e.preventDefault()
+                  const nowFav = toggle(place.id)
+                  if (nowFav) {
+                    toast.success(t('تمت إضافة المكان إلى المفضلة ❤️'))
+                  } else {
+                    toast.info(t('تمت إزالة المكان من المفضلة'))
+                  }
+                }}
+                className={`flex h-9 w-9 items-center justify-center rounded-full backdrop-blur-md transition-all border border-white/20 shadow-xs ${
+                  isFav(place.id)
+                    ? 'bg-rose-500 text-white'
+                    : 'bg-black/60 text-white hover:bg-black/90'
+                }`}
+                title={isFav(place.id) ? t('إزالة من المفضلة') : t('إضافة للمفضلة')}
+              >
+                <Heart
+                  className={`h-4 w-4 ${isFav(place.id) ? 'fill-white' : ''}`}
+                />
+              </button>
               <button
                 onClick={handleShare}
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-black/60 backdrop-blur-md text-white hover:bg-black/90 transition-all border border-white/20 shadow-xs"

@@ -20,28 +20,36 @@ import {
   Briefcase,
   Info,
   Layers,
+  Heart,
+  ShieldAlert,
+  Sparkles,
 } from 'lucide-react'
 import { LanguageToggle } from './LanguageToggle'
+import { useFavorites } from '@/utils/favorites'
 
 const desktopLinks = [
   { to: '/', label: 'الرئيسية' },
   { to: '/places', label: 'استكشف الأماكن' },
-  { to: '/category/tourism', label: 'المعالم' },
+  { to: '/itineraries', label: 'المسارات المقترحة' },
   { to: '/category/beaches', label: 'الشواطئ' },
   { to: '/category/nature', label: 'الطبيعة' },
   { to: '/category/restaurants', label: 'المطاعم' },
+  { to: '/essentials', label: 'خدمات وطوارئ' },
   { to: '/about', label: 'عن المنصة' },
 ]
 
 const mobileDrawerCategories = [
   { to: '/places', label: 'جميع الأماكن', icon: MapPin },
+  { to: '/itineraries', label: 'المسارات والجولات', icon: Navigation },
+  { to: '/essentials', label: 'دليل الطوارئ والتنقل', icon: ShieldAlert },
+  { to: '/saved', label: 'أماكني المفضلة', icon: Heart },
   { to: '/category/tourism', label: 'المعالم السياحية', icon: Compass },
   { to: '/category/beaches', label: 'الشواطئ والساحل', icon: Waves },
   { to: '/category/nature', label: 'الطبيعة والجبال', icon: Trees },
   { to: '/category/restaurants', label: 'المطاعم والمأكولات', icon: Utensils },
   { to: '/category/cafes', label: 'المقاهي والاستراحة', icon: Coffee },
   { to: '/category/hotels', label: 'الفنادق والإقامة', icon: Bed },
-  { to: '/category/activities', label: 'الأنشطة والترفيه', icon: Navigation },
+  { to: '/category/activities', label: 'الأنشطة والترفيه', icon: Sparkles },
   { to: '/category/shopping', label: 'التسوق والأسواق', icon: ShoppingBag },
   { to: '/category/transport', label: 'النقل والمواصلات', icon: Train },
   { to: '/category/culture', label: 'الثقافة والتراث', icon: Landmark },
@@ -54,6 +62,7 @@ export default function Navbar() {
   const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { count: favCount } = useFavorites()
 
   const isHomePage = location.pathname === '/'
 
@@ -104,7 +113,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-bold lg:flex"
+          className="hidden items-center gap-3 xl:gap-4 text-xs xl:text-sm font-bold lg:flex"
           aria-label={t('التنقل الرئيسي')}
         >
           {desktopLinks.map((link) => {
@@ -127,7 +136,30 @@ export default function Navbar() {
         </nav>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Favorites Button with Badge */}
+          <Link
+            to="/saved"
+            className={`relative flex h-10 w-10 items-center justify-center rounded-xl border transition-colors ${
+              location.pathname === '/saved'
+                ? 'border-rose-500 bg-rose-500/15 text-rose-500'
+                : scrolled || mobileMenuOpen || !isHomePage
+                ? 'border-border bg-card text-foreground hover:bg-muted'
+                : 'border-white/20 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md'
+            }`}
+            title={t('الأماكن المحفوظة والمفضلة')}
+            aria-label={t('الأماكن المحفوظة')}
+          >
+            <Heart
+              className={`h-4 w-4 ${favCount > 0 ? 'fill-rose-500 text-rose-500' : ''}`}
+            />
+            {favCount > 0 && (
+              <span className="absolute -top-1 -end-1 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-black text-white shadow-xs">
+                {favCount}
+              </span>
+            )}
+          </Link>
+
           <LanguageToggle />
 
           <Link
@@ -174,34 +206,47 @@ export default function Navbar() {
 
             <nav className="grid grid-cols-2 gap-2 pb-3">
               {mobileDrawerCategories.map((item) => {
-                const Icon = item.icon
+                const IconComponent = item.icon
                 const isActive = location.pathname === item.to
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-2 rounded-xl border p-2.5 text-xs font-bold transition-all active:scale-95 ${
+                    className={`flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-xs font-bold transition-all ${
                       isActive
-                        ? 'border-accent bg-accent/15 text-accent shadow-xs'
-                        : 'border-border/60 bg-card/60 hover:border-accent/50 hover:bg-accent/10 hover:text-accent'
+                        ? 'border-primary bg-primary/10 text-primary shadow-2xs'
+                        : 'border-border/60 bg-card/60 text-foreground hover:bg-muted'
                     }`}
                   >
-                    <Icon className="h-4 w-4 text-accent shrink-0" />
+                    <IconComponent
+                      className={`h-4 w-4 shrink-0 ${isActive ? 'text-primary' : 'text-accent'}`}
+                    />
                     <span className="truncate">{t(item.label)}</span>
+                    {item.to === '/saved' && favCount > 0 && (
+                      <span className="ms-auto rounded-full bg-rose-500/20 px-1.5 py-0.5 text-[9px] font-black text-rose-500">
+                        {favCount}
+                      </span>
+                    )}
                   </Link>
                 )
               })}
             </nav>
 
-            <div className="pt-3 border-t border-border flex flex-col gap-2">
+            {/* Mobile Footer CTAs */}
+            <div className="mt-4 pt-3 border-t border-border/70 flex flex-col gap-2">
               <Link
-                to="/places"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-2.5 text-center text-xs font-bold text-primary-foreground shadow-sm transition-transform active:scale-98"
+                to="/itineraries"
+                className="flex items-center justify-center gap-2 rounded-xl bg-accent/15 border border-accent/30 py-2.5 text-xs font-bold text-accent hover:bg-accent/25 transition-colors"
               >
-                <Compass className="h-4 w-4" />
-                <span>{t('تصفح الدليل الكامل للأماكن')}</span>
+                <Navigation className="h-4 w-4" />
+                <span>{t('تصفح المسارات السياحية المقترحة')}</span>
+              </Link>
+              <Link
+                to="/essentials"
+                className="flex items-center justify-center gap-2 rounded-xl bg-card border border-border py-2 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <ShieldAlert className="h-4 w-4 text-emerald-500" />
+                <span>{t('أرقام الطوارئ والمستشفى والتنقل')}</span>
               </Link>
             </div>
           </motion.div>

@@ -46,16 +46,17 @@ export function Footer({
     {
       title: 'استكشف المزيد',
       links: [
+        { label: 'المسارات السياحية المقترحة', to: '/itineraries' },
+        { label: 'أماكني المفضلة المحفوظة', to: '/saved' },
         { label: 'المقاهي والاستراحة', to: '/category/cafes' },
-        { label: 'الأنشطة والترفيه', to: '/category/activities' },
         { label: 'الفنادق والإقامة', to: '/category/hotels' },
         { label: 'الثقافة والتراث الريفي', to: '/category/culture' },
-        { label: 'الخدمات والمحلات المحلية', to: '/category/services' },
       ],
     },
     {
-      title: 'عن Nador X',
+      title: 'خدمات ومعلومات',
       links: [
+        { label: 'دليل الطوارئ والتنقل', to: '/essentials' },
         { label: 'رسالة المنصة', to: '/about' },
         { label: 'الأسئلة الشائعة', to: '/about' },
         { label: 'تواصل معنا واقترح مكاناً', to: '/about' },

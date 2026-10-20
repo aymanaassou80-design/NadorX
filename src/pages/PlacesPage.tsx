@@ -12,19 +12,44 @@ import {
   CheckCircle2,
   Sparkles,
   ExternalLink,
+  Heart,
+  LocateFixed,
 } from 'lucide-react'
+import { toast } from 'sonner'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SafeImage from '@/components/SafeImage'
 import { allPlaces, categories, PlaceItem } from '@/data/nador'
+import { useFavorites } from '@/utils/favorites'
+
+// Haversine formula to compute distance in km
+function calculateDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371 // Earth radius in km
+  const dLat = ((lat2 - lat1) * Math.PI) / 180
+  const dLon = ((lon2 - lon1) * Math.PI) / 180
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2)
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+  return R * c
+}
 
 export default function PlacesPage() {
   const { t, i18n } = useTranslation()
   const isRtl = i18n.language === 'ar'
+  const { isFav, toggle } = useFavorites()
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedArea, setSelectedArea] = useState('all')
+
+  // Geolocation state
+  const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null)
+  const [isLocating, setIsLocating] = useState(false)
+  const [sortByDistance, setSortByDistance] = useState(false)
 
   const areas = [
     { id: 'all', label: t('كل المناطق') },
@@ -36,10 +61,47 @@ export default function PlacesPage() {
     { id: 'رأس الماء', label: t('رأس الماء') },
     { id: 'بني أنصار', label: t('بني أنصار') },
     { id: 'سلوان', label: t('سلوان') },
+    { id: 'أركمان', label: t('قرية أركمان') },
+    { id: 'العروي', label: t('العروي والمطار') },
   ]
 
+  const handleToggleGeolocation = () => {
+    if (sortByDistance) {
+      setSortByDistance(false)
+      toast.info(t('تم إلغاء الترتيب حسب المسافة'))
+      return
+    }
+
+    if (!navigator.geolocation) {
+      toast.error(t('تحديد الموقع الجغرافي غير مدعوم في متصفحك'))
+      return
+    }
+
+    setIsLocating(true)
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setIsLocating(false)
+        setUserCoords({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        })
+        setSortByDistance(true)
+        toast.success(t('تم تحديد موقعك وترتيب الأماكن من الأقرب إليك!'))
+      },
+      (error) => {
+        setIsLocating(false)
+        console.warn('Geolocation error:', error)
+        // If denied or failed, we can use default downtown Nador coordinates for demonstration
+        setUserCoords({ lat: 35.174, lng: -2.928 })
+        setSortByDistance(true)
+        toast.info(t('تم استخدام موقع وسط مدينة الناظور كمرجع لحساب المسافات'))
+      },
+      { timeout: 10000, enableHighAccuracy: true }
+    )
+  }
+
   const filteredPlaces = useMemo(() => {
-    return allPlaces.filter((place) => {
+    const list = allPlaces.filter((place) => {
       // Category filter
       const matchesCategory =
         selectedCategory === 'all' || place.categoryId === selectedCategory
@@ -63,7 +125,27 @@ export default function PlacesPage() {
 
       return matchesCategory && matchesArea && matchesSearch
     })
-  }, [searchQuery, selectedCategory, selectedArea])
+
+    if (sortByDistance && userCoords) {
+      return [...list].sort((a, b) => {
+        const distA = calculateDistanceKm(
+          userCoords.lat,
+          userCoords.lng,
+          a.coordinates[0],
+          a.coordinates[1]
+        )
+        const distB = calculateDistanceKm(
+          userCoords.lat,
+          userCoords.lng,
+          b.coordinates[0],
+          b.coordinates[1]
+        )
+        return distA - distB
+      })
+    }
+
+    return list
+  }, [searchQuery, selectedCategory, selectedArea, sortByDistance, userCoords])
 
   const getLocalizedName = (place: PlaceItem) => {
     if (i18n.language === 'fr') return place.nameFr || place.name
@@ -84,7 +166,7 @@ export default function PlacesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent/20">
+    <div className={`min-h-screen bg-background text-foreground font-sans ${isRtl ? 'rtl' : 'ltr'}`}>
       <Navbar />
 
       <main className="pt-24 pb-20">
@@ -101,13 +183,38 @@ export default function PlacesPage() {
                   {t('استكشف جميع أماكن الناظور')}
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-                  {t('تصفح الدليل الشامل لمعالم الناظور، بحيرة مارشيكا، شواطئ البحر الأبيض المتوسط، قمم كوروكو، والمطاعم والخدمات المحلية.')}
+                  {t(
+                    'تصفح الدليل الشامل لمعالم الناظور، بحيرة مارشيكا، شواطئ البحر الأبيض المتوسط، قمم كوروكو، والمطاعم والخدمات المحلية.'
+                  )}
                 </p>
               </div>
 
-              <div className="text-xs text-muted-foreground bg-card border border-border/80 rounded-xl px-4 py-2.5 self-start md:self-auto shrink-0 shadow-sm">
-                <span className="font-bold text-primary">{filteredPlaces.length}</span>{' '}
-                {t('مكان متوفر')}
+              <div className="flex flex-wrap items-center gap-2 self-start md:self-auto shrink-0">
+                {/* Geolocation Near Me button */}
+                <button
+                  onClick={handleToggleGeolocation}
+                  disabled={isLocating}
+                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all shadow-sm ${
+                    sortByDistance
+                      ? 'bg-emerald-600 text-white'
+                      : 'border border-border bg-card text-foreground hover:bg-muted'
+                  }`}
+                  title={t('ترتيب الأماكن حسب الأقرب إليك')}
+                >
+                  <LocateFixed className={`h-4 w-4 ${isLocating ? 'animate-spin' : ''}`} />
+                  <span>
+                    {isLocating
+                      ? t('جارٍ تحديد موقعك...')
+                      : sortByDistance
+                      ? t('مرتب حسب الأقرب إليك')
+                      : t('الأقرب إليك (GPS)')}
+                  </span>
+                </button>
+
+                <div className="text-xs text-muted-foreground bg-card border border-border/80 rounded-xl px-4 py-2.5 shadow-sm">
+                  <span className="font-bold text-primary">{filteredPlaces.length}</span>{' '}
+                  {t('مكان متوفر')}
+                </div>
               </div>
             </div>
 
@@ -212,6 +319,7 @@ export default function PlacesPage() {
                   setSearchQuery('')
                   setSelectedCategory('all')
                   setSelectedArea('all')
+                  setSortByDistance(false)
                 }}
                 className="mt-5 rounded-full bg-primary px-5 py-2 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition-all shadow-sm"
               >
@@ -222,6 +330,20 @@ export default function PlacesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
               {filteredPlaces.map((place) => {
                 const categoryObj = categories.find((c) => c.id === place.categoryId)
+                const isFavorite = isFav(place.id)
+
+                // Calculate distance if user coords available
+                let distanceText: string | null = null
+                if (userCoords) {
+                  const dist = calculateDistanceKm(
+                    userCoords.lat,
+                    userCoords.lng,
+                    place.coordinates[0],
+                    place.coordinates[1]
+                  )
+                  distanceText = dist < 1 ? `${Math.round(dist * 1000)} م` : `${dist.toFixed(1)} كم`
+                }
+
                 return (
                   <article
                     key={place.id}
@@ -236,17 +358,50 @@ export default function PlacesPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                      {/* Area & Category Badges */}
+                      {/* Favorite Button */}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          const nowFav = toggle(place.id)
+                          if (nowFav) {
+                            toast.success(t('تمت إضافة المكان إلى المفضلة ❤️'))
+                          } else {
+                            toast.info(t('تمت إزالة المكان من المفضلة'))
+                          }
+                        }}
+                        aria-label={isFavorite ? t('إزالة من المفضلة') : t('إضافة إلى المفضلة')}
+                        className="absolute top-3 end-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 backdrop-blur-md transition-all hover:scale-110 hover:bg-black/80"
+                      >
+                        <Heart
+                          className={`h-4 w-4 transition-colors ${
+                            isFavorite
+                              ? 'fill-rose-500 text-rose-500'
+                              : 'text-white hover:text-rose-400'
+                          }`}
+                        />
+                      </button>
+
+                      {/* Area & Distance Badges */}
                       <div className="absolute bottom-3 inset-x-3 flex items-center justify-between text-xs text-white">
                         <span className="flex items-center gap-1 font-medium drop-shadow-sm">
                           <MapPin className="h-3.5 w-3.5 text-accent" />
                           {getLocalizedArea(place)}
                         </span>
-                        {categoryObj && (
-                          <span className="rounded-full bg-black/60 backdrop-blur-md px-2.5 py-0.5 text-[11px] font-bold text-white border border-white/20">
-                            {i18n.language === 'ar' ? categoryObj.name : i18n.language === 'fr' ? categoryObj.nameFr : categoryObj.nameEn}
-                          </span>
-                        )}
+
+                        <div className="flex items-center gap-1.5">
+                          {distanceText && (
+                            <span className="rounded-full bg-emerald-600/90 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white shadow-xs">
+                              {distanceText}
+                            </span>
+                          )}
+
+                          {categoryObj && (
+                            <span className="rounded-full bg-black/60 backdrop-blur-md px-2.5 py-0.5 text-[11px] font-bold text-white border border-white/20">
+                              {i18n.language === 'ar' ? categoryObj.name : i18n.language === 'fr' ? categoryObj.nameFr : categoryObj.nameEn}
+                            </span>
+                          )}
+                        </div>
                       </div>
 
                       {place.isFeatured && (
@@ -290,7 +445,7 @@ export default function PlacesPage() {
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-accent transition-colors"
                         >
                           <span>{t('عرض التفاصيل الكاملة')}</span>
-                          <span className="rtl:rotate-180">→</span>
+                          <ArrowLeft className={`h-3.5 w-3.5 ${isRtl ? '' : 'rotate-180'}`} />
                         </Link>
 
                         <a

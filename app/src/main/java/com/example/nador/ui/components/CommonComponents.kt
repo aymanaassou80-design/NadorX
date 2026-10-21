@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,13 +38,27 @@ fun SafeNetworkImage(
     modifier: Modifier = Modifier,
     contentScale: ContentScale = ContentScale.Crop
 ) {
+    val context = LocalContext.current
+    val imageModel: Any = remember(url) {
+        val cleanName = url.removePrefix("drawable/")
+            .removeSuffix(".jpg")
+            .removeSuffix(".png")
+            .removeSuffix(".webp")
+        val resId = context.resources.getIdentifier(cleanName, "drawable", context.packageName)
+        if (resId != 0) {
+            resId
+        } else {
+            url
+        }
+    }
+
     Box(
         modifier = modifier
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
         AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(url)
+            model = ImageRequest.Builder(context)
+                .data(imageModel)
                 .crossfade(true)
                 .build(),
             contentDescription = contentDescription,

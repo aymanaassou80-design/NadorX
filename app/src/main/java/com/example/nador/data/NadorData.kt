@@ -11,7 +11,7 @@ object NadorData {
                 "Rocky coastline and seascape; check sea conditions before swimming.",
                 "Côte rocheuse et paysage marin ; vérifiez l'état de la mer avant de nager."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/1dfa229c12899cfb.webp",
+            imageUrl = "drawable/img_charrana_beach",
             categoryId = "beaches",
             latitude = 35.281,
             longitude = -2.966
@@ -25,7 +25,7 @@ object NadorData {
                 "Beach atmosphere near the lagoon; check access and swimming conditions.",
                 "Ambiance de plage près de la lagune ; vérifiez les conditions d'accès et de baignade."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/9284271a32a25ab4.webp",
+            imageUrl = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
             categoryId = "beaches",
             latitude = 35.231,
             longitude = -2.918
@@ -39,7 +39,7 @@ object NadorData {
                 "A promenade with expansive views over the lagoon.",
                 "Une promenade avec de vastes vues sur les eaux de la lagune."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/05a2fb2af14980f8.webp",
+            imageUrl = "drawable/img_marchica_lagoon",
             categoryId = "lagoon",
             latitude = 35.205,
             longitude = -2.925
@@ -53,7 +53,7 @@ object NadorData {
                 "A beach and coastal outing; plan your transportation in advance.",
                 "Une plage et une excursion côtière ; planifiez votre transport à l'avance."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/969b21c11873e637.webp",
+            imageUrl = "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&auto=format&fit=crop&q=80",
             categoryId = "beaches",
             latitude = 35.119,
             longitude = -2.425
@@ -67,7 +67,7 @@ object NadorData {
                 "Elevated views of the coast and lagoon.",
                 "Vues panoramiques élevées sur la côte et la lagune."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/6f018cbb9b249d8b.webp",
+            imageUrl = "drawable/img_gourougou_mount",
             categoryId = "mountains",
             latitude = 35.159,
             longitude = -2.976
@@ -81,7 +81,7 @@ object NadorData {
                 "Trails and shaded areas; wear suitable footwear.",
                 "Sentiers et zones ombragées ; portez des chaussures adaptées."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/f7d85ae87fff8b11.webp",
+            imageUrl = "drawable/img_gourougou_mount",
             categoryId = "forest",
             latitude = 35.166,
             longitude = -2.991
@@ -98,7 +98,7 @@ object NadorData {
                 "Explorez la lagune avec un opérateur local après vérification des horaires et tarifs."
             ),
             suitable = TranslatableText("للعائلات والشباب", "For families and young people", "Pour familles et jeunes"),
-            imageUrl = "https://cdn.chantan.one/hero-cache/2fd341580b4b216c.webp",
+            imageUrl = "drawable/img_marchica_lagoon",
             categoryId = "lagoon"
         ),
         ActivityItem(
@@ -110,7 +110,7 @@ object NadorData {
                 "Apportez de l'eau et des chaussures appropriées, et vérifiez l'état du sentier avant de partir."
             ),
             suitable = TranslatableText("لمن يحبّ المشي", "For those who enjoy walking", "Pour les amateurs de marche"),
-            imageUrl = "https://cdn.chantan.one/hero-cache/4f22c29d9aba281c.webp",
+            imageUrl = "drawable/img_gourougou_mount",
             categoryId = "mountains"
         ),
         ActivityItem(
@@ -122,7 +122,7 @@ object NadorData {
                 "Surveillez l'état de la mer et choisissez une zone sécurisée."
             ),
             suitable = TranslatableText("بحسب حالة البحر", "Depending on sea conditions", "Selon l'état de la mer"),
-            imageUrl = "https://cdn.chantan.one/hero-cache/2abea16daa1ab906.webp",
+            imageUrl = "drawable/img_charrana_beach",
             categoryId = "beaches"
         )
     )
@@ -140,7 +140,7 @@ object NadorData {
                 "Seafood — illustrative listing; the name and address need to be verified.",
                 "Fruits de mer — fiche illustrative à vérifier sur place."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/3b4065a428d7111b.webp",
+            imageUrl = "drawable/img_nador_seafood",
             latitude = 35.171,
             longitude = -2.928
         ),
@@ -156,7 +156,7 @@ object NadorData {
                 "Local dishes — business details will be added once confirmed.",
                 "Plats locaux rifains — détails commerciaux à confirmer."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/c10ca644bfbf533d.webp",
+            imageUrl = "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800&auto=format&fit=crop&q=80",
             latitude = 35.168,
             longitude = -2.934
         ),
@@ -172,7 +172,7 @@ object NadorData {
                 "Meals suitable for groups — an unverified directory listing example.",
                 "Repas adaptés aux familles et groupes près de la lagune."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/04ba5f687f97c437.webp",
+            imageUrl = "drawable/img_nador_seafood",
             latitude = 35.205,
             longitude = -2.925
         ),
@@ -188,7 +188,7 @@ object NadorData {
                 "A place to relax by the lagoon — check the location and opening hours.",
                 "Espace détente au bord de la lagune — vérifiez les horaires."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/109c97aa53035b86.webp",
+            imageUrl = "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80",
             latitude = 35.205,
             longitude = -2.925
         ),
@@ -204,7 +204,7 @@ object NadorData {
                 "A break after a walk — a sample listing that needs verification.",
                 "Une pause café après votre promenade sur la corniche."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/06f5c1c45f3f8cc5.webp",
+            imageUrl = "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80",
             latitude = 35.171,
             longitude = -2.928
         ),
@@ -220,7 +220,7 @@ object NadorData {
                 "A stop during a coastal trip — the business name is unconfirmed.",
                 "Halte rafraîchissante pendant votre excursion côtière."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/5097961454f9da22.webp",
+            imageUrl = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80",
             latitude = 35.119,
             longitude = -2.425
         )
@@ -231,7 +231,7 @@ object NadorData {
             id = "family_day",
             name = TranslatableText("يوم عائلي", "Family Day", "Journée en Famille"),
             audience = TranslatableText("وقت هادئ للجميع", "A peaceful time for everyone", "Un moment paisible pour tous"),
-            imageUrl = "https://cdn.chantan.one/hero-cache/259a2083810aca37.webp",
+            imageUrl = "drawable/img_marchica_lagoon",
             steps = listOf(
                 TranslatableText("صباح عند مارشيكا", "Morning at Marchica", "Matinée à Marchica"),
                 TranslatableText("غداء قرب الكورنيش", "Lunch near the waterfront", "Déjeuner près de la corniche"),
@@ -242,7 +242,7 @@ object NadorData {
             id = "youth_day",
             name = TranslatableText("يوم للشباب", "Day for Young People", "Journée Jeunesse & Aventure"),
             audience = TranslatableText("طبيعة وحركة", "Nature and activity", "Nature et dynamisme"),
-            imageUrl = "https://cdn.chantan.one/hero-cache/59a1bc711e012182.webp",
+            imageUrl = "drawable/img_gourougou_mount",
             steps = listOf(
                 TranslatableText("انطلاق مبكر إلى كوروكو", "An early start for Gourougou", "Départ matinal vers Gourougou"),
                 TranslatableText("استراحة في المدينة", "A break in the city", "Pause déjeuner en ville"),
@@ -260,7 +260,7 @@ object NadorData {
                 "A place to learn about the area's history. Check whether visits are possible before heading there.",
                 "Une étape pour découvrir l'histoire séculaire du Rif oriental."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/2dfd81c50ebfa211.webp"
+            imageUrl = "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&auto=format&fit=crop&q=80"
         ),
         CultureItem(
             id = "rif_amazigh",
@@ -270,7 +270,7 @@ object NadorData {
                 "Language, crafts, and flavors are part of local life; engage with them respectfully and without reducing them to stereotypes.",
                 "Langue, artisanat et saveurs ancrés dans la vie locale rifaine."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/2115267deff61d96.webp"
+            imageUrl = "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80"
         )
     )
 
@@ -283,7 +283,7 @@ object NadorData {
                 "The tour type, language, and meeting point will be listed after service providers have been verified.",
                 "Circuits guidés et accompagnement personnalisé à travers Nador et le Rif."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/d74ba002529f4983.webp"
+            imageUrl = "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&auto=format&fit=crop&q=80"
         ),
         TourismService(
             id = "sea_equipment",
@@ -293,7 +293,7 @@ object NadorData {
                 "The location, facilities, and safety requirements will be added after verification. This is a directory category, not a provider recommendation.",
                 "Kits de plongée, kayaks et équipements pour profiter des eaux de Marchica."
             ),
-            imageUrl = "https://cdn.chantan.one/hero-cache/683fb51c4d895591.webp"
+            imageUrl = "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80"
         )
     )
 
@@ -368,6 +368,6 @@ object NadorData {
         ChecklistItem("c4", TranslatableText("لمحبي المشي: حذاء مناسب وخطة عودة.", "For walkers: wear suitable shoes and plan your return.", "Pour les randonneurs : chaussures adaptées et itinéraire retour."))
     )
 
-    val heroImageUrl = "https://cdn.chantan.one/hero-cache/c60057a677ce5a8c.webp"
-    val landscapeStoryImageUrl = "https://cdn.chantan.one/hero-cache/58fe518786cad2ac.webp"
+    val heroImageUrl = "drawable/img_nador_hero"
+    val landscapeStoryImageUrl = "drawable/img_marchica_lagoon"
 }

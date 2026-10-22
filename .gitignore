@@ -8,3 +8,12 @@ dist/
 # Supabase local dev
 supabase/.temp/
 supabase/.branches/
+
+# Gradle / Android build output
+.gradle/
+build/
+app/build/
+local.properties
+
+# Local Netlify folder
+.netlify

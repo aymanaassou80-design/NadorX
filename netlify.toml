@@ -1,0 +1,5 @@
+# The repository contains the native Android app (app/) and a static web version (public/).
+# Netlify serves the static web version; no build step is needed.
+[build]
+  command = ""
+  publish = "public"

@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "echo 'Build successful'"
+    "dev": "npx serve public"
   }
 }

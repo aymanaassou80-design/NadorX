@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اكتشف الناظور — Discover Nador</title>
+  <meta name="description" content="دليل سياحي تفاعلي لاستكشاف الناظور والريف: الشواطئ وبحيرة مارشيكا وجبل كوروكو والأنشطة والمسارات والمطاعم والتراث." />
+  <meta name="theme-color" content="#1B4332" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">N</span><span data-t="title"></span></a>
+    <nav class="nav">
+      <a href="#places" data-t="nav.places"></a>
+      <a href="#activities" data-t="nav.activities"></a>
+      <a href="#dining" data-t="nav.dining"></a>
+      <a href="#plans" data-t="nav.plans"></a>
+      <a href="#culture" data-t="nav.culture"></a>
+      <a href="#map" data-t="nav.map"></a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="ar">ع</button><button data-lang="en">EN</button><button data-lang="fr">FR</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-img" src="/assets/nador-coast-hero.webp" alt="" />
+      <div class="hero-inner">
+        <p class="eyebrow" data-t="subtitle"></p>
+        <h1 data-t="title"></h1>
+        <p class="lead" data-t="heroText"></p>
+        <a class="btn" href="#places" data-t="explore"></a>
+      </div>
+    </section>
+
+    <div class="safety" data-t="safety"></div>
+
+    <section id="places" class="section">
+      <h2 data-t="nav.places"></h2>
+      <input id="search" class="search" type="search" />
+      <div id="place-filters" class="chips"></div>
+      <div id="place-grid" class="grid"></div>
+    </section>
+
+    <section id="activities" class="section alt">
+      <h2 data-t="nav.activities"></h2>
+      <div id="activity-grid" class="grid"></div>
+    </section>
+
+    <section id="dining" class="section">
+      <h2 data-t="nav.dining"></h2>
+      <div id="dining-kinds" class="chips"></div>
+      <div id="dining-areas" class="chips small"></div>
+      <div id="dining-grid" class="grid"></div>
+    </section>
+
+    <section id="plans" class="section alt">
+      <h2 data-t="nav.plans"></h2>
+      <div id="plan-grid" class="grid two"></div>
+    </section>
+
+    <section id="culture" class="section">
+      <h2 data-t="nav.culture"></h2>
+      <div id="culture-grid" class="grid two"></div>
+      <h3 data-t="services"></h3>
+      <div id="service-grid" class="grid two"></div>
+    </section>
+
+    <section id="map" class="section alt">
+      <h2 data-t="nav.map"></h2>
+      <p class="muted" data-t="mapText"></p>
+      <div class="map-wrap">
+        <div id="map-list" class="map-list"></div>
+        <iframe id="map-frame" title="Map" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-t="checklist"></h2>
+      <ul id="checklist" class="checklist"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong data-t="title"></strong>
+    <p data-t="footer"></p>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
